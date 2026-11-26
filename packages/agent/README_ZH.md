@@ -250,7 +250,7 @@ const agent = new Agent({
     }
   },
 
-  // 在最终的工具事件发出之前，对每个工具结果做后处理。
+  // 在工具执行完成之后、最终的工具事件发出之前，对每个工具结果做后处理。
   afterToolCall: async ({ toolCall, result, isError, context }) => {
     if (toolCall.name === "notify_done" && !isError) {
       return { terminate: true };
